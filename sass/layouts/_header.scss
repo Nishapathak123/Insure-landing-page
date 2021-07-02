@@ -1,0 +1,33 @@
+.navigation{
+    overflow: hidden;
+    .wrapper{
+        display: flex;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        align-items: center;
+        .logo{
+            img{
+                width: 100%;
+            }
+            
+        }
+        .nav-items{
+            display: flex;
+            align-items: center;
+            .nav-links{
+                margin: 0 10px;
+            
+            .items{
+                font-weight: 700;
+                color: $color-Dark-Grayish-Violet;
+                cursor: pointer;
+              &:hover{
+                  color: $color-Dark-Violet;
+                  transition: .3s;
+              }  
+            }
+        }
+    }
+}
+}
