@@ -5,33 +5,75 @@
     .wrapper{
         display: flex;
         justify-content: space-between;
+        @include media(sm) {
+            flex-direction: column-reverse;
+            }
         
         .banner-texter{
             padding-top: 100px;
             padding-bottom: 100px;
+            text-align: center;
          
         h1{
             color: $color-Very-Light-Gray;
             padding: 65px 0 20px 0;
             letter-spacing: 3px;
             @include media(lg) {
-                font-size: 45;
+                font-size: 45px;
+                }
+            @include media(md) {
+                font-size: 40px;
+                }
+            @include media(sm) {
+                font-size: 45px;
+                line-height: 60px;
+                }
+            @include media(sm) {
+                font-size: 35px;
+                line-height: 60px;
                 }
         }
         p{
             color: $color-light-bg-white;
             padding: 0 64px 35px 0;
+            @include media(md) {
+                font-size: 16px;
+                }
+            
+            @include media(sm) {
+                font-size: 17px;
+                padding-right: 0;
+                line-height: 35px;
+                }
+            @include media(xs) {
+                font-size: 14px;
+                line-height: 30px;
+                }
             
         }
         .btn-dark{
             color: $color-Very-Light-Gray;
             border: 1px solid $color-Very-Light-Gray;
             cursor: pointer;
+            @include media(sm) {
+                padding: 15px 54px;
+                border: 3px solid $color-Very-Light-Gray;
+                font-size: 16px;
+                }
+            @include media(xs) {
+                padding: 10px 44px;
+                border: 3px solid $color-Very-Light-Gray;
+                font-size: 14px;
+                }
             &:hover{
                 background: $color-Very-Light-Gray;
                 color: $color-Dark-Violet;
                 border: none;
                 transition: .3s;
+                @include media(sm) {
+                    
+                    font-size: 16px;
+                    }
             }
         }
     }
@@ -42,12 +84,25 @@
         left: 0;
         overflow: unset;
         
-        img{
-            width: 100%;
-            height: 100%;
-        }
+       
     }
 }
+}
+.desktop-image{
+    display: block;
+    width: 100%;
+    height: 100%;
+    @include media(sm) {
+        display: none;
+    }
+}
+.mobile-image{
+    display: none;
+    @include media(sm) {
+        display: block;
+        width: 100%;
+         height: 100%;
+        }
 }
 .banner::before{
     content: " ";
@@ -66,9 +121,29 @@
     @include media(lg) {
         height: 384px;
         width: 280px; 
-        
-        
-    }
+        }
+        @include media(md) {
+            height: 350px;
+            width: 261px;
+            }
+           
+                @include media(sm) {
+                    content : '';
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='168' height='165'%3E%3Cg fill='none' fill-rule='evenodd' stroke='%2396A9C6'%3E%3Cpath d='M-20.97-256.987c-52.677-16.501-106.841-44.025-162.294 6.247-55.453 50.272-90.316 94.31-67.803 151.29 22.514 56.979 114.411 21.488 141.113 72.415 26.7 50.926-31.968 97.145-6.674 142.469 25.293 45.324 44.742 74.373 126.027 45.554C90.684 132.17 83.189 58.843 145.002 15.904c61.814-42.94 128.692-107.221 36.912-221.924-91.78-114.702-150.207-34.465-202.884-50.967z'/%3E%3Cpath d='M-13.955-230.22c-42.902-13.399-87.015-35.746-132.178 5.072-45.163 40.818-73.556 76.574-55.22 122.838 18.335 46.265 93.18 17.449 114.926 58.798 21.747 41.349-26.035 78.877-5.435 115.677 20.6 36.801 36.44 60.387 102.64 36.988 66.201-23.399 60.098-82.937 110.44-117.8 50.343-34.865 104.81-87.059 30.062-180.19C76.532-281.97 28.947-216.823-13.955-230.22z'/%3E%3Cpath d='M-1.61-212.607c-34.755-10.916-70.492-29.123-107.08 4.132-36.587 33.255-59.59 62.386-44.735 100.078 14.854 37.693 75.487 14.216 93.105 47.903 17.617 33.688-21.092 64.263-4.404 94.245 16.689 29.982 29.52 49.197 83.152 30.134 53.631-19.064 48.686-67.57 89.47-95.974 40.785-28.405 84.91-70.927 24.355-146.803-60.556-75.876-99.106-22.8-133.862-33.715z'/%3E%3Cpath d='M11.09-190.546c-28.022-8.762-56.835-23.376-86.334 3.317-29.498 26.693-48.044 50.076-36.068 80.33 11.976 30.255 60.862 11.41 75.066 38.451 14.204 27.04-17.005 51.582-3.55 75.647 13.455 24.066 23.8 39.49 67.041 24.188 43.24-15.301 39.253-54.236 72.136-77.035 32.882-22.8 68.458-56.932 19.635-117.836-48.823-60.904-79.904-18.3-107.926-27.062z'/%3E%3Cpath d='M14.12-176.738c-22.917-7.155-46.481-19.09-70.606 2.71-24.125 21.799-39.292 40.895-29.498 65.602 9.795 24.708 49.775 9.319 61.391 31.402C-12.976-54.941-38.5-34.9-27.496-15.245-16.492 4.408-8.031 17.005 27.332 4.508 62.695-7.988 59.435-39.785 86.327-58.405c26.892-18.62 55.987-46.494 16.058-96.232s-65.348-14.945-88.265-22.1z'/%3E%3C/g%3E%3C/svg%3E");
+                    top:  unset;
+                    left: 0;
+                    right: unset;
+                    bottom: 342px;
+                    height: 290px;
+                    width: 296px;
+                    @include media(xs) {
+                        height: 260px;
+                        width: 262px;
+                        }
+                    
+                    
+                }
+                
 }
 .banner::after{
     content : '';
@@ -90,32 +165,82 @@
         bottom: -260px;
         
     }
+    @include media(md) {
+        height: 331px;
+        width: 446px; 
+        bottom: -217px;
+        
+    }
+    
+    @include media(sm) {
+        content : '';
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='124' height='330'%3E%3Cg fill='none' fill-rule='evenodd' stroke='%239E96C6'%3E%3Cpath d='M185.248 17.983c-40.947-12.815-83.05-34.188-126.155 4.85C15.99 61.874-11.11 96.07 6.39 140.318c17.5 44.247 88.934 16.687 109.69 56.234 20.755 39.547-24.85 75.438-5.188 110.635 19.661 35.196 34.779 57.753 97.963 35.374 63.185-22.378 57.359-79.32 105.408-112.665 48.048-33.344 100.034-83.262 28.692-172.334-71.342-89.072-116.76-26.764-157.706-39.578z'/%3E%3Cpath d='M190.037 40.695c-33.343-10.405-67.629-27.759-102.73 3.94-35.101 31.697-57.17 59.464-42.918 95.392 14.25 35.927 72.42 13.55 89.322 45.66s-20.235 61.253-4.224 89.831c16.01 28.578 28.321 46.894 79.774 28.723 51.452-18.17 46.708-64.405 85.835-91.48 39.128-27.074 81.46-67.606 23.365-139.93-58.096-72.323-95.08-21.73-128.424-32.136z'/%3E%3Cpath d='M200.203 54.055c-26.936-8.47-54.632-22.596-82.988 3.207-28.355 25.803-46.182 48.407-34.67 77.653 11.512 29.246 58.503 11.03 72.157 37.169 13.653 26.139-16.347 49.862-3.413 73.126 12.934 23.263 22.878 38.173 64.443 23.381 41.564-14.791 37.732-52.428 69.34-74.468 31.607-22.04 65.804-55.034 18.874-113.907-46.93-58.874-76.807-17.69-103.743-26.16z'/%3E%3Cpath d='M210.233 71.814c-21.831-6.827-44.279-18.214-67.26 2.585-22.982 20.798-37.43 39.017-28.1 62.59 9.33 23.574 47.416 8.89 58.482 29.96 11.066 21.069-13.248 40.19-2.766 58.942 10.482 18.751 18.543 30.769 52.23 18.846 33.687-11.922 30.581-42.259 56.198-60.024 25.618-17.764 53.334-44.359 15.298-91.813-38.037-47.454-62.251-14.259-84.082-21.086z'/%3E%3C/g%3E%3C/svg%3E");
+        bottom:  -274px;
+        right: 0px;
+        left: unset;
+        height: 500px;
+        width: 188px;
+        z-index: 99999;
+        overflow: hidden;
+        @include media(xs) {
+            height: 500px;
+            width: 130px; 
+          
+            
+        }
+        
+    }
+    
 }
 .liner{
     height: 1px;
      width: 150px;
      background: $color-Very-Light-Gray;
+     @include media(sm) {
+        display: none;
+        }
      
  }
 //  url('../image/bg-pattern-intro-right-desktop.svg')no-repeat
  .different{
      position: relative;
-     
+     @include media(sm) {
+       text-align: center;
+        }
      .wrapper{
         padding-top: 250px;
         padding-bottom: 85px;
+        @include media(sm) {
+            padding-top: 150px;
+            }
         .different-texter{
  .texter-line{
      width: 150px;
      height: 1px;
     background: $color-Dark-Grayish-Violet; 
     opacity: 0.3;
+    @include media(sm) {
+        text-align: center;
+        width: 170px;
+        margin: auto;
+        background: $color-Grayish-Blue;
+        opacity: 1.5;
+        }
  }
  h1{
-     padding: 40px 0 100px 0;
+     padding: 43px 0 100px 0;
      color: $color-Very-Dark-Violet;
      @include media(lg) {
-        font-size: 45;
+        font-size: 45px;
+        }
+     @include media(md) {
+        font-size: 40px;
+        }
+     @include media(sm) {
+        padding: 43px 0 20px 0;
+        }
+     @include media(sm) {
+        font-size: 35px;
         }
  }
 }
@@ -124,32 +249,67 @@
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 56px;
     padding: 80px 0 50px 0;
+    @include media(sm) {
+        grid-template-columns: repeat(1, 1fr);
+        
+        } 
     .our-quality{
+        img{
+            @include media(md) {
+                width: 40%;
+                } 
+            @include media(sm) {
+                width: 25%
+                } 
+            @include media(xs) {
+                width: 18%;
+                } 
+        }
         h3{
             padding: 32px 0 22px 0;
             color: $color-Dark-Violet;
             @include media(lg) {
                 font-size: 24px;
                 }
+            @include media(md) {
+                font-size: 22px;
+                }
+            @include media(xs) {
+                font-size: 18px;
+                }
         }
         .text2{
             color: $color-Dark-Grayish-Violet;
+            @include media(sm) {
+                font-size: 17px;
+                line-height: 30px;
+                } 
+            @include media(xs) {
+                font-size: 15px;
+                line-height: 25px;
+                } 
         }
     }
 }
 }
 }
 .how-we-work{
-    position: relative;
+    @include media(sm) {
+        text-align: center;
+        } 
     
     .wrapper{
         display: flex;
         justify-content: space-between;
         background: $color-Dark-Violet;
         padding-top: 70px;
-        padding-bottom: 70px;
+        padding-bottom: 80px;
         align-items: center;
         overflow: hidden;
+        position: relative;
+        @include media(sm) {
+           flex-direction: column;
+            } 
         &::before{
             content: " ";
             position: absolute;
@@ -161,34 +321,57 @@
             height: 400px;
             right: 0px;
             bottom: -85px;
-            z-index: 99;
+            // z-index: 99;
+            @include media(md) {
+             width: 396px;
+            height: 384px;
+            bottom: -78px;
+                } 
+            @include media(sm) {
+                content: " ";
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='176' height='317'%3E%3Cg fill='none' fill-rule='evenodd' stroke='%239E96C6'%3E%3Cpath d='M229.233-90.334c-50.722-15.88-102.876-42.369-156.271 6.012C19.567-35.94-14.002 6.441 7.676 61.278c21.678 54.836 110.165 20.68 135.875 69.691 25.71 49.01-30.78 93.492-6.426 137.111 24.354 43.62 43.081 71.576 121.35 43.841 78.268-27.734 71.051-98.303 130.57-139.628 59.52-41.324 123.916-103.188 35.542-213.576-88.373-110.388-144.632-33.17-195.354-49.05z'/%3E%3Cpath d='M235.714-64.418c-41.272-12.887-83.71-34.382-127.158 4.879C65.108-20.28 37.793 14.114 55.432 58.614c17.64 44.5 89.642 16.782 110.563 56.554 20.92 39.772-25.047 75.868-5.23 111.265 19.818 35.397 35.056 58.083 98.743 35.577 63.687-22.507 57.815-79.773 106.246-113.308 48.431-33.534 100.83-83.736 28.92-173.316-71.909-89.58-117.687-26.916-158.96-39.804z'/%3E%3Cpath d='M247.526-47.655c-33.452-10.515-67.85-28.052-103.065 3.98-35.216 32.032-57.355 60.091-43.058 96.397 14.297 36.305 72.657 13.692 89.614 46.14 16.956 32.449-20.301 61.898-4.239 90.777 16.063 28.88 28.414 47.388 80.034 29.026 51.62-18.362 46.86-65.084 86.115-92.443 39.255-27.36 81.726-68.318 23.441-141.403-58.285-73.084-95.39-21.96-128.842-32.474z'/%3E%3Cpath d='M259.692-27.494c-27.045-8.434-54.853-22.5-83.323 3.192-28.47 25.692-46.368 48.198-34.81 77.318C153.119 82.136 200.3 64 214.008 90.025c13.708 26.026-16.412 49.647-3.427 72.81 12.986 23.164 22.971 38.01 64.703 23.282 41.732-14.728 37.884-52.203 69.62-74.147 31.734-21.945 66.07-54.797 18.95-113.417-47.12-58.62-77.117-17.614-104.161-26.047z'/%3E%3Cpath d='M262.21-13.586c-22.048-6.9-44.719-18.409-67.929 2.612-23.21 21.02-37.802 39.435-28.379 63.26 9.423 23.826 47.887 8.986 59.063 30.28 11.176 21.294-13.38 40.62-2.793 59.572 10.587 18.952 18.727 31.099 52.75 19.048 34.022-12.05 30.885-42.71 56.757-60.665 25.873-17.955 53.865-44.834 15.45-92.796-38.415-47.962-62.87-14.411-84.919-21.311z'/%3E%3C/g%3E%3C/svg%3E");
+                width: 186px;
+                height: 381px;
+                right: 0px;
+                bottom: 0px;
+            } 
         
         
         }
         
         .we-work{
             margin-left: 60px;
+            @include media(sm) {
+                margin-left: 0px;
+                }
             h2{
                 color: $color-Very-Light-Gray;
                 letter-spacing: 2px;
                 line-height: 45px;
-                @include media(lg) {
+                @include media(sm) {
                     font-size: 34px;
+                    padding: 0 33px;
                     }
+                @include media(xs) {
+                    font-size: 26px;
+                    padding: 0 40px;
+                    }
+                  
             }
         }
         .work-btn{
+            z-index: 999;
             margin-right: 60px;
+            @include media(sm) {
+                padding-top: 40px;
+                margin-right: 0px;
+                }
             .btn-light{
-                position: absolute;
-                z-index: 999;
-                right: 200px;
                 border: 1px solid $color-Very-Light-Gray;
                 color: $color-Very-Light-Gray;
                 cursor: pointer;
-                @include media(lg) {
-                    right: 170px;
-                    }
+                
+                
               &:hover{
                   background: $color-Very-Light-Gray;
                   color: $color-Very-Dark-Violet;

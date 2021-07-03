@@ -9,18 +9,22 @@
     box-shadow: 0px 5px 10px rgba(0,0,0,.1);
     border: 2px solid $color-Dark-Violet;
     text-transform: uppercase;
-    -moz-transition: ease 0.2s;
-    -o-transition: ease 0.2s;
-    -webkit-transition: ease 0.2s;
-    transition: ease 0.2s;
+   
 
     
 
     &:hover {
-        border: none;
         color: $color-white;
         background: $color-Dark-Violet;
+        transition: .3s;
 
+    }
+    @include media(sm) {
+        &:hover {
+            color: $color-Very-Dark-Violet;
+            background: $color-Very-Light-Gray;
+            transition: .3s;
+        }
     }
 }
 

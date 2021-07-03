@@ -15,8 +15,46 @@
         .nav-items{
             display: flex;
             align-items: center;
+            @include media(sm) {
+                position: fixed;
+                top: 100px;
+                left: 50%;
+                right: 0;
+                bottom: 0;
+                flex-direction: column;
+                height: 50vh;
+                background: $color-Very-Light-Gray;
+                align-items: center;
+                width: 400px;
+                z-index: 9999;
+                transform: translate(-50%);
+                -webkit-transition: cubic-bezier(0.65, 0.05, 0.36, 1) 0.4s;
+                transition: cubic-bezier(0.65, 0.05, 0.36, 1) 0.4s;
+               
+                   } 
             .nav-links{
                 margin: 0 10px;
+                @include media(sm) {
+                    align-items: center;
+                    padding: 25px 0;
+                    width: 100%;
+                    text-align: center;
+                    transition: .3s ease;
+                    margin: 0;
+                    border-bottom: 1px solid $color-Grayish-Blue;
+                    &:hover{
+                        background: $color-Grayish-Blue;
+                        color: $color-Dark-Violet;
+                        opacity: 1;
+                    }
+                    &:hover a {
+                        color: $color-Dark-Violet;
+                        letter-spacing: 5px;
+                        transition: 0.3s ease;
+                    }
+
+                    }
+                    
             
             .items{
                 font-weight: 700;
@@ -30,4 +68,58 @@
         }
     }
 }
+}
+.navigation .wrapper .navbar ul.open {
+    right: 0;
+}
+@media only screen and (min-width: 767px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+.navigation .wrapper .hamburger{
+    margin: 0;
+    padding: 0;
+    margin: 5px 0;
+    opacity: 0.3s;
+    float: left;
+    border: 3px solid $color-Dark-Violet;
+    padding: 15px;
+
+    &:hover{
+        cursor: pointer;
+        opacity: 0.5s;
+    }
+}
+.line{
+    width: 30px;
+    height: 3px;
+    background: $color-Dark-Violet;
+    margin: 5px auto;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+}
+.navigation .wrapper .nav-items{
+    @include media(sm) {
+        display: none;
+        }
+    
+}
+.navigation .wrapper .nav-items.open{
+    display: block;
+}
+.hamburger.isactive{
+    .line{
+        &:nth-child(2){
+            opacity: 0;
+        }
+        &:nth-child(1){
+            transform: translateY(-1px) rotate(45deg);
+        }
+        &:nth-child(3){
+            transform: translateY(-13px) rotate(-45deg);
+        }
+    }
 }
