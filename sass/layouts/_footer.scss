@@ -23,6 +23,12 @@
                     }
                 a{
                     padding-left: 10px;
+                    cursor: pointer;
+                    &:hover{
+                        path{
+                            fill: $color-Dark-Violet;
+                        }
+                    }
                 }
             }
         }
@@ -64,6 +70,11 @@
                             color: $color-Very-Dark-Violet;
                             font-size: 13px;
                             font-weight: 700;
+                            cursor: pointer;
+                                &:hover{
+                                    text-decoration: underline;
+                                }
+                                
                         }
                     }
                 }
