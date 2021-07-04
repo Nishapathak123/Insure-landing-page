@@ -17,7 +17,7 @@
             align-items: center;
             @include media(sm) {
                 position: fixed;
-                top: 95px;
+                top: 0px;
                 left: 0;
                 right: 0;
                 width: 100%;
@@ -131,6 +131,7 @@
 }
 .navigation .wrapper .nav-items.open{
     transform: translateY(0);
+    top: 95px;
     width: 100%;
 
 }
